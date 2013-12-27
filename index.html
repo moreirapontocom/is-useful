@@ -1,0 +1,56 @@
+<pre>
+How to use:
+
+1. Include the main script
+
+&lt;script src="//plugin-path/is-usefull/is-usefull.js"&gt;&lt;/script&gt;
+
+--
+2. The easy way to initiate the plugin:
+
+&lt;script&gt;
+	$('#is-usefull').isusefull();
+&lt;/script&gt;
+
+// If you want to initiate when page is loaded, use $(function() { })
+
+--
+3. You can set some options to translate the plugin
+
+&lt;script&gt;
+	$('#is-usefull').isusefull({
+		text	: "Este conte&uacute;do foi &uacute;til?", // Default text
+		textYes	: "Sim", // Text to YES button
+		textNo	: "N&atilde;o", // Text to NO button
+		messages : {
+			error : "Error on save your vote", // Error msg
+			success : "Thank you!" // Success msg
+		},
+		pluginPath: document.location.hostname + '/is-usefull/' // Plugin path
+	});
+&lt;/script&gt;
+
+--
+4. Create a element that will get the plugin content
+
+&lt;div id="is-usefull"&gt;&lt;/div&gt;
+
+
+--
+5. Create the MySQL table that will contain the data
+
+CREATE TABLE `contents_isusefull` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `page` varchar(255) NOT NULL,
+  `is_usefull` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC
+
+
+--
+6. Setup the database settings into scripts/iu-db.php
+
+
+--
+That's it!
+</pre>
