@@ -48,6 +48,12 @@ CREATE TABLE `contents_isusefull` (
 
 
 --
+5.1. Alter table
+
+ALTER TABLE `contents_isusefull` 
+  ADD COLUMN `user_hash` CHAR(40) NOT NULL COMMENT 'hash is user_ip + user_session' AFTER `is_usefull`;
+
+--
 6. Setup the database settings into scripts/iu-db.php
 
 

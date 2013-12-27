@@ -9,7 +9,8 @@
 			textNo	: "No",
 			messages : {
 				error : "Error on save your vote",
-				success : "Thank you!"
+				success : "Thank you!",
+				denied:	"You already voted"
 			},
 			pluginPath: document.location.hostname + '/is-usefull/'
 		};
@@ -47,7 +48,12 @@
 			},
 			success: function(data) {
 				obj.find('#isusefull-options').remove();
-				obj.find('#isusefull-alerts').html( settings.messages.success );
+
+				if ( data == 2 )
+					obj.find('#isusefull-alerts').html( settings.messages.denied );
+				else
+					obj.find('#isusefull-alerts').html( settings.messages.success );
+
 			},
 			error: function(e) {
 				obj.find('#isusefull-alerts').html( settings.messages.error );
