@@ -16,7 +16,7 @@
 		var settings = $.extend(true, {}, defaults, params);
 
 		// Page's URL
-		obj.append('<div id="isusefull-location" style="display: none;">' + window.location + '</div>');
+		obj.append('<div id="isusefull-location" style="display:none;">' + settings.pluginPath + '</div>');
 		var page = obj.find('#isusefull-location').html();
 
 		// Title
@@ -40,7 +40,7 @@
 	var saveVote = function(settings,page,selectedOption) {
 		$.ajax({
 			type: "POST",
-			url: "http://localhost/is-usefull/scripts/iu-save-vote.php",
+			url: settings.pluginPath + "scripts/iu-save-vote.php",
 			data: {
 				page: page,
 				selectedOption: selectedOption
